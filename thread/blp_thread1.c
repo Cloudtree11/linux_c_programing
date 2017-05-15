@@ -39,16 +39,3 @@ void *thread_function(void *arg)
 	strcpy(message, "Bye!");
 	pthread_exit("Thank you for the CPU time");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

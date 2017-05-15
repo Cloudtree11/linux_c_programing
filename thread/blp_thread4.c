@@ -13,6 +13,8 @@ pthread_mutex_t work_mutex;
 char work_area[WORK_SIZE];
 int time_to_exit = 0;
 
+/* 互斥量进行多线程同步访问 */
+
 int main()
 {
 	int res;
@@ -30,13 +32,14 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 
+	/* pthread_mutex_lock 已锁时会进行堵塞  */
 	pthread_mutex_lock(&work_mutex);
 	printf("Input some text. Enter 'end' to finish\n");
 	while(!time_to_exit) {
 		fgets(work_area, WORK_SIZE, stdin);
 		pthread_mutex_unlock(&work_mutex);
 		while(1) {
-			pthread_mutex_unlock(&work_mutex);
+			pthread_mutex_lock(&work_mutex);
 			if(work_area[0] != '\0') {
 				pthread_mutex_unlock(&work_mutex);
 				sleep(1);
@@ -68,16 +71,15 @@ void *thread_function(void *arg)
 		sleep(1);
 		pthread_mutex_lock(&work_mutex);
 		while(work_area[0] == '\0') {
-			pthread_mutex_unlock(&work_area);
+			pthread_mutex_unlock(&work_mutex);
 			sleep(1);
-			pthread_mutex_lock(&work_area);
+			pthread_mutex_lock(&work_mutex);
 		}
 	}
 	time_to_exit = 1;
 	work_area[0] = '\0';
-	pthread_mutex_unlock(&work_area);
+	pthread_mutex_unlock(&work_mutex);
 	pthread_exit(0);
-
 }
 
 
