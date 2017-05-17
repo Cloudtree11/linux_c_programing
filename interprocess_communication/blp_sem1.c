@@ -1,4 +1,6 @@
 
+/* 使用信号量 */
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
