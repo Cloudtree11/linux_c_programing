@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/* ±» pipe3 µÄ×Ó½ø³Ìµ÷ÓÃ  */
+/* è¢« pipe3 çš„å­è¿›ç¨‹è°ƒç”¨  */
 
 int main(int argc, char *argv[])
 {
