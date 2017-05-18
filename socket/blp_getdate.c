@@ -1,5 +1,5 @@
 /*
- * 使用 socket 连接标准服务
+ * 浣跨敤 socket 杩炴帴鏍囧噯鏈嶅姟
  */
 
 #include <sys/socket.h>

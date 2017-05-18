@@ -1,5 +1,5 @@
 /*
- * »ñÈ¡Ö÷»úÍøÂçĞÅÏ¢
+ * è·å–ä¸»æœºç½‘ç»œä¿¡æ¯
  */
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
 	addrs = hostinfo -> h_addr_list;
 	while(*addrs) {
-		/* inet_ntoa ½«Ò»¸öÒòÌØÍøÖ÷»úµØÖ·×ª»»Îªµã·ÖËÄÔª×é×Ö·û´®  */
+		/* inet_ntoa å°†ä¸€ä¸ªå› ç‰¹ç½‘ä¸»æœºåœ°å€è½¬æ¢ä¸ºç‚¹åˆ†å››å…ƒç»„å­—ç¬¦ä¸²  */
 		printf(" %s", inet_ntoa(*(struct in_addr *)*addrs));
 		addrs++;
 	}
