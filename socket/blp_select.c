@@ -34,7 +34,10 @@ int main()
 		/*
 		 * int select(int nfds, fd_set *readfds, fd_set *writefds,
 		 *                   fd_set *exceptfds, struct timeval *timeout)
-		 * Allow a program to  monitor  multiple  file  descriptors, waiting  until one or more of the file descriptors become "ready" for some class of I/O operation (e.g., input possible).
+		 * Allow a program to  monitor  multiple  file  descriptors, 
+		 * waiting  until one or more of the file descriptors become "ready" 
+		 * for some class of I/O operation (e.g., input possible).
+		 *
 		 * nfds - the highest-numbered file descriptor in any of the three sets
 		 * readfds - 可读描述符集合
 		 * writefds - 可写描述符集合
