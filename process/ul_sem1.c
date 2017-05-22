@@ -1,5 +1,5 @@
 /*
- * 创建、读取和删除信号量等操作 
+ * 鍒涘缓銆佽鍙栧拰鍒犻櫎淇″彿閲忕瓑鎿嶄綔 
  */
 #include <sys/sem.h>
 #include <sys/types.h>

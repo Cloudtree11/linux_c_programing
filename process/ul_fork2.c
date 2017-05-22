@@ -1,5 +1,5 @@
 /*
- * fork ·µ»ØÖµ
+ * fork è¿”å›žå€¼
  */
 
 #include <stdio.h>

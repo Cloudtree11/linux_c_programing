@@ -1,5 +1,5 @@
 /*
- *
+ * UDP socket
  */
 
 #include <sys/socket.h>
