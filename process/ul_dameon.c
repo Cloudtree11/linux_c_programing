@@ -1,3 +1,6 @@
+/*
+ * 创建守护进程
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
