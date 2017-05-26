@@ -1,10 +1,10 @@
 # linux_c_programing
 Linux C programing cases
 
-## ²Î¿¼Êé¼®
+## å‚è€ƒä¹¦ç±
 
-- Beginning Linux Programming£¨Linux ³ÌĞòÉè¼Æ£©
+- Beginning Linux Programmingï¼ˆLinux ç¨‹åºè®¾è®¡ï¼‰
 - Advanced Linux Programming
-- The Linux Programming inTerface
-- »ùÓÚ UNIX/Linux µÄ C ÏµÍ³±à³Ì
+- The Linux Programming inTerfaceï¼ˆLinux/UNIX ç³»ç»Ÿç¼–ç¨‹æ‰‹å†Œï¼‰
+- åŸºäº UNIX/Linux çš„ C ç³»ç»Ÿç¼–ç¨‹
 
