@@ -12,7 +12,7 @@ sem_t bin_sem;
 #define WORK_SIZE 1024
 char work_area[WORK_SIZE];
 
-/* Ïß³ÌĞÅºÅÁ¿ */
+/* çº¿ç¨‹ä¿¡å·é‡ */
 
 int main()
 {
@@ -20,7 +20,7 @@ int main()
 	pthread_t a_thread;
 	void *thread_result;
 
-	/* sem_init ³õÊ¼»¯ĞÅºÅÁ¿¶ÔÏó*/
+	/* sem_init åˆå§‹åŒ–ä¿¡å·é‡å¯¹è±¡*/
 	res = sem_init(&bin_sem, 0, 0);
 	if(res != 0) {
 		perror("Semaphore initialization failed");
@@ -36,7 +36,7 @@ int main()
 	printf("Input some text. Enter 'end' to finish.\n");
 	while(strncmp("end", work_area, 3) != 0) {
 		fgets(work_area, WORK_SIZE, stdin);
-		/* sem_post ÒÔÔ­×Ó²Ù×÷µÄ·½Ê½¸øĞÅºÅÁ¿µÄÖµ¼Ó1 */
+		/* sem_post ä»¥åŸå­æ“ä½œçš„æ–¹å¼ç»™ä¿¡å·é‡çš„å€¼åŠ 1 */
 		sem_post(&bin_sem);
 	}
 
@@ -53,7 +53,7 @@ int main()
 
 void *thread_function(void *arg)
 {
-	/* sem_wait µÈ´ıÖ±µ½ĞÅºÅÁ¿·Ç 0£¬ÒÔÔ­×Ó²Ù×÷µÄ·½Ê½¸øĞÅºÅÁ¿µÄÖµ¼Ó 1 */
+	/* sem_wait ç­‰å¾…ç›´åˆ°ä¿¡å·é‡é 0ï¼Œä»¥åŸå­æ“ä½œçš„æ–¹å¼ç»™ä¿¡å·é‡çš„å€¼åŠ  1 */
 	sem_wait(&bin_sem);
 	while(strncmp("end", work_area, 3) != 0) {
 		printf("You input %d characters\n", strlen(work_area) - 1);
