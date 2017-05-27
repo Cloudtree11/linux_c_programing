@@ -77,6 +77,11 @@ int main(void)
 			perror("accept error");
 			exit(1);
 		}
+		/* 
+		 * 多线程并发要考虑如何防止参数传递出现访问冲突，
+		 * 互斥锁、条件变量等同步机制会严重影响线程之间的并发效率，
+		 * 这里采用的方法是在主线程上为每个新线程分配存储 arg 的空间
+		 */
 		arg = (struct ARG *)malloc(sizeof(struct ARG));
 		if(arg == NULL) {
 			printf("malloc failed!\n");
