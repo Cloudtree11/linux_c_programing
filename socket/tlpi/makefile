@@ -1,6 +1,12 @@
 
 .PHONY : all
-all : t_getservbyname
+all : id_echo_sv id_echo_cl
+
+id_echo_sv : id_echo_sv.o error_functions.o become_daemon.o inet_sockets.o
+	cc -o $@ $^
+
+id_echo_cl : id_echo_cl.o error_functions.o inet_sockets.o
+	cc -o $@ $^
 
 t_getservbyname : t_getservbyname.o error_functions.o
 	cc -o $@ $^
@@ -30,6 +36,14 @@ us_xfr_cl : us_xfr_cl.o error_functions.o get_num.o
 	cc -o $@ $^
 
 #
+
+become_daemon.o : become_daemon.c become_daemon.h
+
+id_echo_sv.o : id_echo_sv.c id_echo.h
+	cc -c $<
+
+id_echo_cl.o : id_echo_cl.c id_echo.h
+	cc -c $<
 
 t_getservbyname.o : t_getservbyname.c tlpi_hdr.h
 	cc -c $<
