@@ -1,6 +1,9 @@
 
 .PHONY : all
-all : id_echo_sv id_echo_cl
+all : socknames
+
+socknames : socknames.o error_functions.o inet_sockets.o
+	cc -o $@ $^
 
 id_echo_sv : id_echo_sv.o error_functions.o become_daemon.o inet_sockets.o
 	cc -o $@ $^
@@ -37,7 +40,11 @@ us_xfr_cl : us_xfr_cl.o error_functions.o get_num.o
 
 #
 
+socknames.o : socknames.c
+	cc -c $<
+
 become_daemon.o : become_daemon.c become_daemon.h
+	cc -c $<
 
 id_echo_sv.o : id_echo_sv.c id_echo.h
 	cc -c $<

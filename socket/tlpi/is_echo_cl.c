@@ -40,6 +40,9 @@
 
    See also is_echo_sv.c.
 */
+/*
+ * Cloudtree - echo 服务器的客户端程序（shutdown 系统调用）
+ */
 #include "inet_sockets.h"
 #include "tlpi_hdr.h"
 
