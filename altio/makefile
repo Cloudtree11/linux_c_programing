@@ -1,6 +1,9 @@
 
 .PHONY : all
-all : demo_sigio
+all : epoll_input
+
+epoll_input : epoll_input.o error_functions.o
+	cc -o $@ $^
 
 demo_sigio : demo_sigio.o error_functions.o tty_functions.o
 	cc -o $@ $^
@@ -12,6 +15,9 @@ t_select : t_select.o error_functions.o get_num.o
 	cc -o $@ $^
 
 #
+
+epoll_input.o : epoll_input.c
+	cc -c $<
 
 demo_sigio.o : demo_sigio.c
 	cc -c $<

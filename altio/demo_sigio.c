@@ -14,6 +14,9 @@
 
    A trivial example of the use of signal-driven I/O.
 */
+/*
+ * Cloudtree - 在终端上使用信号驱动 I/O
+ */
 #include <signal.h>
 #include <ctype.h>
 #include <fcntl.h>
@@ -44,17 +47,29 @@ main(int argc, char *argv[])
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = SA_RESTART;
     sa.sa_handler = sigioHandler;
+	/*
+	 * SIGIO - I/O now possible
+	 */
     if (sigaction(SIGIO, &sa, NULL) == -1)
         errExit("sigaction");
 
     /* Set owner process that is to receive "I/O possible" signal */
-
+	/*
+	 * F_SETOWN -
+	 * Set the process ID or process group ID that will receive SIGIO and SIGURG signals for events on file descriptor fd to the ID given in arg.
+	 * 设置文件描述符的属主，即当文件描述符上可执行 I/O 时会接受到通知信号的进程或进程组
+	 */
     if (fcntl(STDIN_FILENO, F_SETOWN, getpid()) == -1)
         errExit("fcntl(F_SETOWN)");
 
     /* Enable "I/O possible" signaling and make I/O nonblocking
        for file descriptor */
-
+	/*
+	 * F_GETFL - Get the file access mode and the file status flags
+	 * F_SETFL - Set the file status flags to the value specified by arg
+	 * O_ASYNC - a SIGIO signal is sent whenever input or output becomes possible on that file descriptor 使能信号驱动 I/O
+	 * O_NONBLOCK - 使能非阻塞 I/O
+	 */
     flags = fcntl(STDIN_FILENO, F_GETFL);
     if (fcntl(STDIN_FILENO, F_SETFL, flags | O_ASYNC | O_NONBLOCK) == -1)
         errExit("fcntl(F_SETFL)");
