@@ -19,6 +19,10 @@
 
         self_pipe - 0
 */
+/*
+ * self-pipe 技巧：信号处理例程写一个字节数据到管道中，代表管道读端的文件描述符包含
+ * 在被监视的文件描述符集合中，以实现在监视多个文件描述的同时等待信号的发送。
+ */
 #include <sys/time.h>
 #if ! defined(__hpux)   /* HP-UX 11 doesn't have this header file */
 #include <sys/select.h>
