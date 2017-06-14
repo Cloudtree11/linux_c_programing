@@ -7,4 +7,6 @@ Linux C programing cases
 - Advanced Linux Programming
 - The Linux Programming inTerface（Linux/UNIX 系统编程手册）
 - 基于 UNIX/Linux 的 C 系统编程
+- Data	Structures And Algorithms Made Easy
+
 
